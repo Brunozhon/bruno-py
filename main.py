@@ -12,6 +12,7 @@ print('''
 ''')
 input("Press enter to start")
 money = 100
+cals = 300
 jobpicked = False;
 job = ""
 gameover = False;
@@ -78,7 +79,10 @@ questions before we start?
         print('The boss replies, "No.". Game over.')
         gameover = True
       else:
-        print("You see the boss. You are hired!")  
+        print("You see the boss. You are hired!")
+    else:
+      print("Your wanted job {job} was not found (Fork to add more jobs)")
+      job = ""
   do = input("What do you want to do?")
   if do == "Do job":
     if job == "Programmer":
@@ -89,4 +93,28 @@ questions before we start?
       print("You earn 20 money per wood you cut.")
       print("You carved 1 wood. + 20 dollars.")
       money = money + 10
+  elif do == "See stats":
+    print('''
+    Current stats:
+    
+    Money: {money}
+    Job: {job}
+    Calories: {cals}
+    ''')
+  elif do == "Eat":
+    food = input("What do you want to eat?")
+    if food == "Pizza" and money < 29:
+      print("Calories: 50")
+      money = money - 30
+      cals = cals + 50
+    elif food = "Cheeseburger" and money < 9:
+      print("Calories: 80")
+      money = money - 10
+      cals = cals + 80
+    else:
+      print("Your food {food} was not found (You can fork and add foods)")
+  else:
+    print("Action {do} was not found (You can fork to add more)")
+  
+      
   
